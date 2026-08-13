@@ -25,6 +25,7 @@
     --line:#DAD9C9;
     --muted:#5B6B5F;
     --wa:#22B85C;
+    --heading:#152920;
     --radius:3px;
     --maxw:1180px;
     --tex1: rgba(38,70,58,0.10);
@@ -36,11 +37,14 @@
      Pensado para uso nocturno: fondo casi negro-verdoso en vez de negro
      puro (menos fatiga visual que el negro absoluto), texto cálido de
      bajo contraste extremo, y acentos ligeramente más suaves que en el
-     modo claro para no generar deslumbramiento. */
+     modo claro para no generar deslumbramiento.
+     Nota: --pine y --pine-dark NO se invierten aquí a propósito, ya que
+     se usan como FONDO de secciones que deben verse oscuras siempre
+     (footer, panel de evidencia, tarjeta de contacto). Lo que sí se
+     invierte es --heading, usada para el TEXTO de títulos y navegación,
+     que necesita volverse claro sobre el fondo oscuro. */
   html[data-theme="dark"]{
     --ink:#E4E7DE;
-    --pine:#3E6B58;
-    --pine-dark:#0E1712;
     --sage:#1B2620;
     --paper:#121814;
     --card:#1A231C;
@@ -50,6 +54,7 @@
     --line:#2B362E;
     --muted:#94A497;
     --wa:#2FC96B;
+    --heading:#F1EEE3;
     --tex1: rgba(211,161,100,0.06);
     --tex2: rgba(211,161,100,0.09);
     color-scheme: dark;
@@ -79,9 +84,8 @@
     font-weight:600;
     line-height:1.14;
     letter-spacing:-0.01em;
-    color:var(--pine-dark);
+    color:var(--heading);
   }
-  .eyebrow{
     font-family:'IBM Plex Mono', monospace;
     font-size:12.5px;
     letter-spacing:0.14em;
@@ -111,7 +115,7 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:100;
-    background:rgba(242,240,231,0.94);
+    background:color-mix(in srgb, var(--paper) 94%, transparent);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -123,7 +127,7 @@
     font-family:'Fraunces', serif;
     font-weight:600;
     font-size:21px;
-    color:var(--pine-dark);
+    color:var(--heading);
     display:flex; align-items:baseline; gap:8px;
   }
   .logo em{
@@ -140,7 +144,7 @@
   .nav-links a{
     position:relative;
     padding:4px 0;
-    color:var(--pine-dark);
+    color:var(--heading);
   }
   .nav-links a::after{
     content:"";
@@ -167,7 +171,7 @@
   .btn-wa:hover{transform:translateY(-1px); box-shadow:0 4px 12px rgba(34,184,92,0.35);}
   .btn-wa svg{width:17px; height:17px; fill:#fff;}
   .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
-  .menu-toggle span{display:block; width:24px; height:2px; background:var(--pine-dark); margin:5px 0;}
+  .menu-toggle span{display:block; width:24px; height:2px; background:var(--heading); margin:5px 0;}
 
   /* ---------- THEME TOGGLE ---------- */
   .theme-toggle{
@@ -182,7 +186,7 @@
   }
   .theme-toggle svg{
     width:18px; height:18px;
-    stroke:var(--pine-dark);
+    stroke:var(--heading);
     fill:none;
     position:absolute;
     transition:opacity .25s ease, transform .35s ease;
@@ -248,7 +252,7 @@
   .btn-ghost{
     display:inline-flex; align-items:center; gap:8px;
     border:1px solid var(--pine);
-    color:var(--pine-dark);
+    color:var(--heading);
     font-weight:600;
     font-size:15px;
     padding:14px 24px;
@@ -274,7 +278,7 @@
     font-family:'Fraunces', serif;
     font-size:25px;
     font-weight:600;
-    color:var(--pine-dark);
+    color:var(--heading);
     margin-bottom:2px;
   }
 
@@ -294,6 +298,74 @@
     0%,100%{opacity:.55; r:3.4;}
     50%{opacity:1; r:5.2;}
   }
+
+  /* ---------- CARRUSEL DE EVIDENCIA DE LA CLÍNICA ---------- */
+  .ec-wrap{margin-bottom:34px; max-width:480px;}
+  .ec-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:10px;
+  }
+  .evidence-carousel{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--card);
+  }
+  .ec-track{
+    display:flex;
+    transition:transform .45s ease;
+  }
+  .ec-slide{
+    min-width:100%;
+    aspect-ratio:16/9;
+    position:relative;
+  }
+  .ec-slide img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .ec-fallback{
+    display:none;
+    width:100%; height:100%;
+    align-items:center; justify-content:center;
+    background-image:
+      radial-gradient(circle at 30% 30%, var(--tex2), transparent 55%),
+      radial-gradient(circle at 75% 70%, var(--tex1), transparent 55%);
+    background-color:var(--sage);
+  }
+  .ec-fallback span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; letter-spacing:.04em;
+    color:var(--muted);
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:8px 14px;
+    border-radius:var(--radius);
+  }
+  .ec-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:32px; height:32px; border-radius:50%;
+    background:rgba(0,0,0,0.35);
+    color:#fff; border:none; cursor:pointer;
+    font-size:18px; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease;
+  }
+  .ec-nav:hover{background:rgba(0,0,0,0.55);}
+  .ec-prev{left:10px;}
+  .ec-next{right:10px;}
+  .ec-dots{
+    position:absolute; bottom:10px; left:0; right:0;
+    display:flex; justify-content:center; gap:6px;
+  }
+  .ec-dot{
+    width:6px; height:6px; border-radius:50%;
+    background:rgba(255,255,255,0.5);
+    border:none; cursor:pointer; padding:0;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .ec-dot.active{background:#fff; transform:scale(1.3);}
 
   /* ---------- MERIDIAN DIVIDER ---------- */
   .meridian-divider{width:100%; height:34px; margin:0 auto; display:block; opacity:0.5;}
@@ -492,7 +564,7 @@
   .faq-q{
     width:100%; text-align:left; background:none; border:none; cursor:pointer;
     padding:22px 4px; display:flex; align-items:center; justify-content:space-between; gap:16px;
-    font-family:'Fraunces', serif; font-size:17px; font-weight:600; color:var(--pine-dark);
+    font-family:'Fraunces', serif; font-size:17px; font-weight:600; color:var(--heading);
   }
   .faq-q .plus{
     font-family:'IBM Plex Mono', monospace; font-size:20px; color:var(--gold-dark);
@@ -546,7 +618,7 @@
     width:36px; height:36px; flex-shrink:0;
     border:1px solid var(--line); border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    color:var(--pine);
+    color:var(--heading);
   }
   .info-item b{display:block; font-size:14.5px; margin-bottom:2px;}
   .info-item span{font-size:13.5px; color:var(--muted);}
@@ -612,6 +684,7 @@
   @media (max-width:960px){
     .hero .wrap{grid-template-columns:1fr; gap:36px;}
     .spine-wrap{order:-1; max-width:240px; margin:0 auto;}
+    .ec-wrap{max-width:100%;}
     .porque-grid{grid-template-columns:1fr 1fr;}
     .servicio-grid, .evid-grid, .testi-grid, .contacto-grid, .cond-grid{grid-template-columns:1fr;}
     .promo .wrap{flex-direction:column; align-items:flex-start; text-align:left;}
@@ -689,10 +762,43 @@
           </a>
           <a class="btn-ghost" href="#servicios">Ver tratamientos</a>
         </div>
+
+        <!-- CARRUSEL DE EVIDENCIA DE LA CLÍNICA -->
+        <div class="ec-wrap reveal" aria-label="Evidencia de la clínica: fotos y credenciales">
+          <p class="ec-label">Conoce nuestro consultorio y credenciales</p>
+          <div class="evidence-carousel">
+            <div class="ec-track" id="ecTrack">
+              <div class="ec-slide">
+                <img src="images/evidencia-1.jpg" alt="Cédula profesional" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="ec-fallback"><span>Cédula profesional</span></div>
+              </div>
+              <div class="ec-slide">
+                <img src="images/evidencia-2.jpg" alt="Consultorio" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="ec-fallback"><span>Nuestro consultorio</span></div>
+              </div>
+              <div class="ec-slide">
+                <img src="images/evidencia-3.jpg" alt="Certificado de especialidad" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="ec-fallback"><span>Certificado de especialidad</span></div>
+              </div>
+              <div class="ec-slide">
+                <img src="images/evidencia-4.jpg" alt="Equipo e instrumental" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="ec-fallback"><span>Equipo e instrumental</span></div>
+              </div>
+              <div class="ec-slide">
+                <img src="images/evidencia-5.jpg" alt="Reconocimientos" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="ec-fallback"><span>Reconocimientos</span></div>
+              </div>
+            </div>
+            <button class="ec-nav ec-prev" id="ecPrev" aria-label="Imagen anterior" type="button">‹</button>
+            <button class="ec-nav ec-next" id="ecNext" aria-label="Imagen siguiente" type="button">›</button>
+            <div class="ec-dots" id="ecDots"></div>
+          </div>
+        </div>
+
         <div class="trust-row">
-          <div class="trust-item"><b>+20</b>años de práctica clínica</div>
+          <div class="trust-item"><b>33</b>años de práctica clínica</div>
           <div class="trust-item"><b>+100</b>pacientes atendidos</div>
-          <div class="trust-item"><b>[Cédula]</b>profesional verificable</div>
+          <div class="trust-item"><b>2247983</b>profesional verificable</div>
         </div>
       </div>
 
@@ -1206,6 +1312,44 @@
     try { localStorage.setItem('theme', next); } catch (e) { /* almacenamiento no disponible */ }
     updateToggleLabel();
   });
+
+  /* Carrusel de evidencia de la clínica */
+  (function(){
+    const track = document.getElementById('ecTrack');
+    if (!track) return;
+    const slides = Array.from(track.children);
+    const dotsWrap = document.getElementById('ecDots');
+    const prevBtn = document.getElementById('ecPrev');
+    const nextBtn = document.getElementById('ecNext');
+    let index = 0;
+    let timer = null;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'ec-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    function goTo(i){
+      index = (i + slides.length) % slides.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.classList.toggle('active', di === index));
+    }
+    function next(){ goTo(index + 1); }
+    function prev(){ goTo(index - 1); }
+    function startAuto(){ timer = setInterval(next, 4500); }
+    function stopAuto(){ clearInterval(timer); }
+
+    nextBtn.addEventListener('click', () => { next(); stopAuto(); startAuto(); });
+    prevBtn.addEventListener('click', () => { prev(); stopAuto(); startAuto(); });
+    track.parentElement.addEventListener('mouseenter', stopAuto);
+    track.parentElement.addEventListener('mouseleave', startAuto);
+
+    startAuto();
+  })();
 
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
