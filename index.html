@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultorio El huesudo — Quiropráctica &amp; Acupuntura</title>
+<meta name="description" content="Atención en quiropráctica y acupuntura basada en evidencia. Agenda tu consulta por WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#182620;
+    --pine:#1F3D33;
+    --pine-dark:#13261F;
+    --paper:#F1F3EC;
+    --card:#FFFFFF;
+    --gold:#B8863E;
+    --gold-dark:#96692B;
+    --clay:#9C4A2C;
+    --line:#D9DED2;
+    --muted:#5C6B62;
+    --wa:#25D366;
+    --radius:2px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    color:var(--pine-dark);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-dark);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--gold-dark);
+    display:inline-block;
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold-dark);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(241,243,236,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:78px;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:21px;
+    color:var(--pine-dark);
+    display:flex; align-items:baseline; gap:8px;
+  }
+  .logo em{
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold-dark);
+    font-size:15px;
+  }
+  .nav-links{
+    display:flex; gap:36px;
+    font-size:14.5px;
+    font-weight:500;
+  }
+  .nav-links a{
+    position:relative;
+    padding:4px 0;
+    color:var(--pine-dark);
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute; left:0; bottom:0;
+    width:0; height:1.5px;
+    background:var(--gold-dark);
+    transition:width .25s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    display:flex; align-items:center; gap:20px;
+  }
+  .btn-wa{
+    display:inline-flex; align-items:center; gap:9px;
+    background:var(--wa);
+    color:#fff;
+    font-weight:600;
+    font-size:14px;
+    padding:11px 20px;
+    border-radius:var(--radius);
+    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 2px 0 rgba(0,0,0,0.08);
+  }
+  .btn-wa:hover{transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,211,102,0.35);}
+  .btn-wa svg{width:17px; height:17px; fill:#fff;}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
+  .menu-toggle span{display:block; width:24px; height:2px; background:var(--pine-dark); margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 70px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(38px, 4.6vw, 60px);
+    margin-bottom:22px;
+  }
+  .hero h1 .accent{
+    font-style:italic;
+    font-weight:500;
+    color:var(--gold-dark);
+  }
+  .hero p.lede{
+    font-size:18px;
+    color:var(--muted);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .hero-ctas{
+    display:flex; gap:16px; flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--pine);
+    color:#fff;
+    font-weight:600;
+    font-size:15px;
+    padding:15px 26px;
+    border-radius:var(--radius);
+    transition:background .2s ease, transform .18s ease;
+  }
+  .btn-primary:hover{background:var(--pine-dark); transform:translateY(-1px);}
+  .btn-ghost{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--pine);
+    color:var(--pine-dark);
+    font-weight:600;
+    font-size:15px;
+    padding:14px 24px;
+    border-radius:var(--radius);
+    transition:background .2s ease;
+  }
+  .btn-ghost:hover{background:rgba(31,61,51,0.06);}
+
+  .trust-row{
+    display:flex; gap:34px; flex-wrap:wrap;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+  }
+  .trust-item{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    max-width:16ch;
+    letter-spacing:0.01em;
+  }
+  .trust-item b{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:26px;
+    font-weight:600;
+    color:var(--pine-dark);
+    margin-bottom:2px;
+  }
+
+  /* ---------- SIGNATURE SPINE ILLUSTRATION ---------- */
+  .spine-wrap{
+    position:relative;
+    display:flex; justify-content:center;
+  }
+  .spine-wrap svg{width:100%; height:auto; max-width:400px;}
+  .spine-point{
+    animation:pulse 2.8s ease-in-out infinite;
+  }
+  .spine-point:nth-child(2){animation-delay:.35s;}
+  .spine-point:nth-child(3){animation-delay:.7s;}
+  .spine-point:nth-child(4){animation-delay:1.05s;}
+  .spine-point:nth-child(5){animation-delay:1.4s;}
+  .spine-point:nth-child(6){animation-delay:1.75s;}
+  @keyframes pulse{
+    0%,100%{opacity:.55; r:3.4;}
+    50%{opacity:1; r:5.2;}
+  }
+
+  /* ---------- MERIDIAN DIVIDER ---------- */
+  .meridian-divider{
+    width:100%; height:34px;
+    margin:0 auto;
+    display:block;
+    opacity:0.55;
+  }
+
+  /* ---------- SERVICIOS ---------- */
+  .servicios{padding:96px 0; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .section-head{
+    max-width:640px;
+    margin-bottom:56px;
+  }
+  .section-head h2{font-size:clamp(28px,3.2vw,40px);}
+  .section-head p{color:var(--muted); font-size:16.5px; margin-top:14px;}
+
+  .servicio-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .servicio-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:38px 34px;
+    border-radius:var(--radius);
+    position:relative;
+  }
+  .servicio-card .num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--gold-dark);
+    letter-spacing:.1em;
+    margin-bottom:18px;
+    display:block;
+  }
+  .servicio-card h3{font-size:24px; margin-bottom:14px;}
+  .servicio-card p{color:var(--muted); font-size:15px; margin-bottom:20px;}
+  .servicio-card ul{display:flex; flex-direction:column; gap:9px;}
+  .servicio-card li{
+    font-size:14.5px;
+    display:flex; align-items:flex-start; gap:10px;
+    color:var(--ink);
+  }
+  .servicio-card li::before{
+    content:"";
+    width:6px; height:6px;
+    border-radius:50%;
+    background:var(--gold-dark);
+    margin-top:7px;
+    flex-shrink:0;
+  }
+
+  /* ---------- EVIDENCIA ---------- */
+  .evidencia{padding:96px 0; background:var(--pine); color:#EDEFE6;}
+  .evidencia .section-head h2{color:#fff;}
+  .evidencia .section-head p{color:#C6D0C7;}
+  .evidencia .eyebrow{color:#D9B36C;}
+  .evidencia .eyebrow::before{background:#D9B36C;}
+
+  .evid-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+  }
+  .evid-card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.14);
+    padding:28px 26px;
+    border-radius:var(--radius);
+  }
+  .evid-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:#1a1a1a;
+    background:#D9B36C;
+    padding:3px 9px;
+    border-radius:2px;
+    margin-bottom:16px;
+  }
+  .evid-card h4{
+    color:#fff;
+    font-size:19px;
+    margin-bottom:10px;
+    font-weight:600;
+  }
+  .evid-card p{
+    font-size:14.5px;
+    color:#C6D0C7;
+    margin-bottom:14px;
+  }
+  .evid-source{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:#93A594;
+    border-top:1px solid rgba(255,255,255,0.14);
+    padding-top:12px;
+  }
+  .evid-disclaimer{
+    margin-top:40px;
+    font-size:13px;
+    color:#93A594;
+    max-width:74ch;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,0.14);
+  }
+
+  /* ---------- PROCESO ---------- */
+  .proceso{padding:96px 0; background:var(--paper);}
+  .pasos{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:0;
+    counter-reset:paso;
+  }
+  .paso{
+    position:relative;
+    padding:0 22px 0 0;
+    border-right:1px solid var(--line);
+  }
+  .paso:last-child{border-right:none;}
+  .paso-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:38px;
+    color:var(--gold-dark);
+    margin-bottom:16px;
+    display:block;
+  }
+  .paso h4{font-size:17px; margin-bottom:10px;}
+  .paso p{font-size:14px; color:var(--muted);}
+
+  /* ---------- TESTIMONIOS ---------- */
+  .testimonios{padding:96px 0; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  .testi-card{
+    padding:30px 28px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+  }
+  .testi-stars{color:var(--gold-dark); font-size:14px; margin-bottom:16px; letter-spacing:2px;}
+  .testi-card p{font-size:15px; color:var(--ink); margin-bottom:20px; font-style:italic; font-family:'Fraunces', serif; font-weight:400; line-height:1.5;}
+  .testi-name{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);}
+
+  /* ---------- UBICACION / CONTACTO ---------- */
+  .contacto{padding:96px 0;}
+  .contacto-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .info-list{margin-top:28px; display:flex; flex-direction:column; gap:22px;}
+  .info-item{display:flex; gap:16px; align-items:flex-start;}
+  .info-icon{
+    width:38px; height:38px; flex-shrink:0;
+    border:1px solid var(--line);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--pine);
+  }
+  .info-item b{display:block; font-size:14.5px; margin-bottom:2px;}
+  .info-item span{font-size:14px; color:var(--muted);}
+
+  .contact-card{
+    background:var(--pine);
+    color:#fff;
+    padding:44px 38px;
+    border-radius:var(--radius);
+  }
+  .contact-card h3{color:#fff; font-size:24px; margin-bottom:12px;}
+  .contact-card p{color:#C6D0C7; font-size:14.5px; margin-bottom:28px;}
+  .contact-card .btn-wa{
+    width:100%;
+    justify-content:center;
+    padding:16px;
+    font-size:15.5px;
+  }
+  .contact-card .hours{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,0.16);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    display:flex; flex-direction:column; gap:8px;
+    color:#C6D0C7;
+  }
+  .hours-row{display:flex; justify-content:space-between;}
+
+  /* ---------- FLOATING WA ---------- */
+  .float-wa{
+    position:fixed;
+    bottom:26px; right:26px;
+    width:58px; height:58px;
+    background:var(--wa);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 20px rgba(37,211,102,0.45);
+    z-index:200;
+    animation:floatpulse 2.6s ease-in-out infinite;
+  }
+  .float-wa svg{width:28px; height:28px; fill:#fff;}
+  @keyframes floatpulse{
+    0%,100%{box-shadow:0 6px 20px rgba(37,211,102,0.45);}
+    50%{box-shadow:0 6px 28px rgba(37,211,102,0.7);}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--pine-dark);
+    color:#9AAA9B;
+    padding:56px 0 30px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:36px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  footer .logo{color:#fff;}
+  footer .logo em{color:#D9B36C;}
+  footer p.desc{font-size:13.5px; margin-top:14px; max-width:34ch; line-height:1.6;}
+  footer h5{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:#6E8071;
+    margin-bottom:16px;
+  }
+  footer ul{display:flex; flex-direction:column; gap:10px;}
+  footer ul a{font-size:14px; color:#C6D0C7;}
+  footer ul a:hover{color:#fff;}
+  .footer-bottom{
+    padding-top:24px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:12.5px;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .spine-wrap{order:-1; max-width:260px; margin:0 auto;}
+    .servicio-grid, .evid-grid, .testi-grid, .contacto-grid{grid-template-columns:1fr;}
+    .pasos{grid-template-columns:1fr 1fr; row-gap:32px;}
+    .paso{border-right:none;}
+    .footer-grid{grid-template-columns:1fr;}
+    .nav-links{
+      position:absolute; top:78px; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column; gap:0;
+      border-bottom:1px solid var(--line);
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:16px 32px; width:100%; border-bottom:1px solid var(--line);}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-wa span{display:none;}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px;}
+    .trust-row{gap:24px;}
+    .hero-ctas{flex-direction:column; align-items:stretch;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="logo">Klkas chidas <em>Clínica</em></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#evidencia">Evidencia</a></li>
+      <li><a href="#proceso">Tu primera visita</a></li>
+      <li><a href="#testimonios">Testimonios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a class="btn-wa" href="https://wa.me/5215522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2m0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.29"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Quiropráctica &amp; Acupuntura</p>
+        <h1>Tu cuerpo tiene<br><span class="accent">una lógica.</span><br>La restauramos.</h1>
+        <p class="lede">Tratamiento manual y acupuntura orientados a aliviar dolor de espalda, cuello y cabeza, con un enfoque basado en evidencia clínica y seguimiento personalizado.</p>
+        <div class="hero-ctas">
+          <a class="btn-primary" href="https://wa.me/5215522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener">
+            Agendar por WhatsApp →
+          </a>
+          <a class="btn-ghost" href="#evidencia">Ver el respaldo clínico</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><b>+20</b>años de práctica clínica</div>
+          <div class="trust-item"><b>+100</b>pacientes atendidos</div>
+          <div class="trust-item"><b>[Cédula]</b>profesional verificable</div>
+        </div>
+      </div>
+
+      <div class="spine-wrap">
+        <svg viewBox="0 0 300 460" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M150 20 C 120 70, 180 110, 150 160 C 120 210, 180 250, 150 300 C 125 340, 175 380, 150 440"
+                stroke="#1F3D33" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+          <g stroke="#1F3D33" stroke-width="1.4" opacity="0.55">
+            <rect x="134" y="34" width="32" height="12" rx="3" transform="rotate(-6 150 40)"/>
+            <rect x="126" y="66" width="32" height="12" rx="3" transform="rotate(10 150 72)"/>
+            <rect x="132" y="98" width="32" height="12" rx="3" transform="rotate(-8 150 104)"/>
+            <rect x="126" y="130" width="32" height="12" rx="3" transform="rotate(9 150 136)"/>
+            <rect x="132" y="162" width="32" height="12" rx="3" transform="rotate(-7 150 168)"/>
+            <rect x="122" y="194" width="32" height="12" rx="3" transform="rotate(11 150 200)"/>
+            <rect x="130" y="226" width="32" height="12" rx="3" transform="rotate(-6 150 232)"/>
+            <rect x="120" y="258" width="32" height="12" rx="3" transform="rotate(9 150 264)"/>
+            <rect x="128" y="290" width="32" height="12" rx="3" transform="rotate(-8 150 296)"/>
+            <rect x="122" y="322" width="32" height="12" rx="3" transform="rotate(6 150 328)"/>
+            <rect x="128" y="354" width="32" height="12" rx="3" transform="rotate(-5 150 360)"/>
+            <rect x="132" y="386" width="30" height="12" rx="3" transform="rotate(4 150 392)"/>
+          </g>
+          <circle class="spine-point" cx="150" cy="52" r="4" fill="#B8863E"/>
+          <circle class="spine-point" cx="168" cy="112" r="4" fill="#B8863E"/>
+          <circle class="spine-point" cx="132" cy="176" r="4" fill="#B8863E"/>
+          <circle class="spine-point" cx="162" cy="244" r="4" fill="#B8863E"/>
+          <circle class="spine-point" cx="128" cy="308" r="4" fill="#B8863E"/>
+          <circle class="spine-point" cx="150" cy="376" r="4" fill="#B8863E"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <svg class="meridian-divider" viewBox="0 0 1180 34" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 17 Q 150 2, 300 17 T 600 17 T 900 17 T 1180 17" stroke="#B8863E" stroke-width="1" fill="none"/>
+    <circle cx="150" cy="9" r="2.5" fill="#B8863E"/>
+    <circle cx="450" cy="24" r="2.5" fill="#B8863E"/>
+    <circle cx="750" cy="9" r="2.5" fill="#B8863E"/>
+    <circle cx="1050" cy="24" r="2.5" fill="#B8863E"/>
+  </svg>
+
+  <!-- SERVICIOS -->
+  <section class="servicios" id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Servicios</p>
+        <h2>Dos disciplinas, un mismo objetivo</h2>
+        <p>Cada tratamiento se adapta a tu diagnóstico. Muchos pacientes combinan ambos enfoques dentro de un mismo plan de recuperación.</p>
+      </div>
+
+      <div class="servicio-grid">
+        <div class="servicio-card reveal">
+          <span class="num">01 — Manual</span>
+          <h3>Quiropráctica</h3>
+          <p>Ajustes manuales enfocados en la columna vertebral y articulaciones para mejorar la movilidad y reducir la compresión nerviosa.</p>
+          <ul>
+            <li>Dolor lumbar y cervical</li>
+            <li>Hernias discales leves a moderadas</li>
+            <li>Rehabilitación postural</li>
+            <li>Dolor derivado de malas posturas laborales</li>
+          </ul>
+        </div>
+
+        <div class="servicio-card reveal">
+          <span class="num">02 — Puntos</span>
+          <h3>Acupuntura</h3>
+          <p>Inserción de agujas estériles en puntos específicos para estimular la respuesta natural del cuerpo ante el dolor y la inflamación.</p>
+          <ul>
+            <li>Migraña y cefalea tensional</li>
+            <li>Dolor crónico articular</li>
+            <li>Manejo del estrés y ansiedad leve</li>
+            <li>Apoyo en recuperación deportiva</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVIDENCIA -->
+  <section class="evidencia" id="evidencia">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Panel de evidencia</p>
+        <h2>Lo que dice la literatura clínica</h2>
+        <p>Un resumen honesto: dónde hay respaldo consistente, dónde la evidencia aún es limitada, y qué implica eso para tu tratamiento.</p>
+      </div>
+
+      <div class="evid-grid">
+        <div class="evid-card reveal">
+          <span class="evid-tag">Dolor lumbar</span>
+          <h4>Manipulación vertebral</h4>
+          <p>Revisiones sistemáticas describen beneficios comparables a otros tratamientos conservadores para dolor lumbar agudo y subagudo, especialmente combinada con ejercicio terapéutico.</p>
+          <p class="evid-source">Fuente: revisiones Cochrane sobre manipulación espinal — consulta el estudio completo con tu especialista.</p>
+        </div>
+
+        <div class="evid-card reveal">
+          <span class="evid-tag">Migraña</span>
+          <h4>Acupuntura para cefaleas</h4>
+          <p>Ensayos clínicos reportan reducción en frecuencia de episodios de migraña y cefalea tensional en tratamientos sostenidos de varias semanas.</p>
+          <p class="evid-source">Fuente: NCCIH (National Center for Complementary and Integrative Health).</p>
+        </div>
+
+        <div class="evid-card reveal">
+          <span class="evid-tag">Cervicalgia</span>
+          <h4>Terapia manual cervical</h4>
+          <p>La evidencia disponible es moderada: útil como parte de un plan integral, no como tratamiento único para casos de dolor cervical crónico.</p>
+          <p class="evid-source">Fuente: guías clínicas de manejo de dolor musculoesquelético, OMS.</p>
+        </div>
+
+        <div class="evid-card reveal">
+          <span class="evid-tag">Dolor crónico</span>
+          <h4>Acupuntura y manejo del dolor</h4>
+          <p>Metaanálisis sugieren efecto superior al placebo en dolor osteoarticular crónico, aunque el tamaño del efecto varía según la condición tratada.</p>
+          <p class="evid-source">Fuente: literatura recopilada por NCCIH e institutos de salud pública.</p>
+        </div>
+      </div>
+
+      <p class="evid-disclaimer">Esta información es un resumen orientativo, no un diagnóstico. La evidencia científica en terapias manuales y acupuntura continúa desarrollándose, y varía según la condición específica de cada paciente. La evaluación en consulta determina si estos tratamientos son adecuados para tu caso.</p>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="proceso" id="proceso">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Tu primera visita</p>
+        <h2>Qué esperar en consulta</h2>
+      </div>
+
+      <div class="pasos">
+        <div class="paso reveal">
+          <span class="paso-num">1</span>
+          <h4>Evaluación inicial</h4>
+          <p>Revisión de historial clínico, postura y rango de movimiento para entender el origen del dolor.</p>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">2</span>
+          <h4>Diagnóstico funcional</h4>
+          <p>Se define si el caso responde mejor a manipulación, acupuntura, o una combinación de ambas.</p>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">3</span>
+          <h4>Plan de tratamiento</h4>
+          <p>Número estimado de sesiones, frecuencia recomendada y objetivos medibles de mejora.</p>
+        </div>
+        <div class="paso reveal">
+          <span class="paso-num">4</span>
+          <h4>Seguimiento</h4>
+          <p>Ajustes al plan según tu evolución, con reevaluaciones periódicas del progreso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section class="testimonios" id="testimonios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Testimonios</p>
+        <h2>Pacientes que ya recuperaron movilidad</h2>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Llegué sin poder girar el cuello por semanas. Después de un par de sesiones ya podía dormir sin dolor."</p>
+          <div class="testi-name">— [Nombre del paciente], dolor cervical</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Explican todo con claridad antes de tocar nada. Eso me dio mucha confianza desde la primera cita."</p>
+          <div class="testi-name">— [Nombre del paciente], lumbalgia</div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"La acupuntura para mis migrañas fue lo único que realmente redujo la frecuencia de los episodios."</p>
+          <div class="testi-name">— [Nombre del paciente], migraña crónica</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="wrap">
+      <div class="contacto-grid">
+        <div class="reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2>Agenda tu consulta</h2>
+          <p style="color:var(--muted); margin-top:14px; max-width:44ch;">Escríbenos por WhatsApp con tu disponibilidad y motivo de consulta. Respondemos en horario de atención.</p>
+
+          <div class="info-list">
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <b>Dirección</b>
+                <span>Avenida Revolución 114, Escandon, CDMX</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+              </div>
+              <div>
+                <b>Teléfono / WhatsApp</b>
+                <span>+52 55 2241 7515</span>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+              <div>
+                <b>Citas</b>
+                <span>Con cita previa — respuesta el mismo día</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card reveal">
+          <h3>Escríbenos directo</h3>
+          <p>Cuéntanos brevemente tu molestia y te confirmamos disponibilidad de horario.</p>
+          <a class="btn-wa" href="https://wa.me/5215522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2m0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.29"/></svg>
+            <span>Escribir por WhatsApp</span>
+          </a>
+          <div class="hours">
+            <div class="hours-row"><span>Lunes – Viernes</span><span>9:00 – 20:00</span></div>
+            <div class="hours-row"><span>Sábado</span><span>9:00 – 20:00</span></div>
+            <div class="hours-row"><span>Domingo</span><span>10:00 - 21:00</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<a class="float-wa" href="https://wa.me/525522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2m0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.29"/></svg>
+</a>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="#top" class="logo">El klkas <em>Clínica</em></a>
+        <p class="desc">Quiropráctica y acupuntura con enfoque clínico y seguimiento personalizado a cada paciente.</p>
+      </div>
+      <div>
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#evidencia">Evidencia</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li>+52 55 2241 7515</li>
+          <li>[correo@ejemplo.com]</li>
+          <li>[Ciudad, Estado]</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> [Tu Nombre] Clínica. Todos los derechos reservados.</span>
+      <span>Este sitio ofrece información general y no sustituye una valoración médica presencial.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
