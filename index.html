@@ -3,25 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consultorio El huesudo — Quiropráctica &amp; Acupuntura</title>
-<meta name="description" content="Atención en quiropráctica y acupuntura basada en evidencia. Agenda tu consulta por WhatsApp.">
+<title>El Huesudo — Acupuntura, Quiropráctica y Masaje de Rehabilitación</title>
+<meta name="description" content="Acupuntura, quiropráctica y masaje de rehabilitación en Escandón, CDMX. Atención basada en evidencia. Agenda tu consulta por WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#182620;
-    --pine:#1F3D33;
-    --pine-dark:#13261F;
-    --paper:#F1F3EC;
-    --card:#FFFFFF;
-    --gold:#B8863E;
-    --gold-dark:#96692B;
-    --clay:#9C4A2C;
-    --line:#D9DED2;
-    --muted:#5C6B62;
-    --wa:#25D366;
-    --radius:2px;
+    /* Paleta suave, pensada para pantallas de celular con brillo/reflejo:
+       fondo cálido no-blanco puro, tinta oscura de alto contraste,
+       verde pino profundo y ocre como acentos, sin blancos deslumbrantes. */
+    --ink:#1B2B23;
+    --pine:#26463A;
+    --pine-dark:#152920;
+    --sage:#E9EEE4;
+    --paper:#F2F0E7;
+    --card:#FBFAF4;
+    --gold:#B8894A;
+    --gold-dark:#8F6A34;
+    --clay:#A2532F;
+    --line:#DAD9C9;
+    --muted:#5B6B5F;
+    --wa:#22B85C;
+    --radius:3px;
     --maxw:1180px;
   }
 
@@ -31,7 +35,7 @@
     font-family:'Inter', sans-serif;
     color:var(--ink);
     background:var(--paper);
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
   img,svg{display:block; max-width:100%;}
@@ -42,7 +46,7 @@
   h1,h2,h3,h4{
     font-family:'Fraunces', serif;
     font-weight:600;
-    line-height:1.12;
+    line-height:1.14;
     letter-spacing:-0.01em;
     color:var(--pine-dark);
   }
@@ -76,7 +80,7 @@
   /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:100;
-    background:rgba(241,243,236,0.92);
+    background:rgba(242,240,231,0.94);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -98,7 +102,7 @@
     font-size:15px;
   }
   .nav-links{
-    display:flex; gap:36px;
+    display:flex; gap:32px;
     font-size:14.5px;
     font-weight:500;
   }
@@ -129,14 +133,14 @@
     transition:transform .18s ease, box-shadow .18s ease;
     box-shadow:0 2px 0 rgba(0,0,0,0.08);
   }
-  .btn-wa:hover{transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,211,102,0.35);}
+  .btn-wa:hover{transform:translateY(-1px); box-shadow:0 4px 12px rgba(34,184,92,0.35);}
   .btn-wa svg{width:17px; height:17px; fill:#fff;}
   .menu-toggle{display:none; background:none; border:none; cursor:pointer;}
   .menu-toggle span{display:block; width:24px; height:2px; background:var(--pine-dark); margin:5px 0;}
 
   /* ---------- HERO ---------- */
   .hero{
-    padding:88px 0 70px;
+    padding:84px 0 66px;
     position:relative;
     overflow:hidden;
   }
@@ -147,8 +151,8 @@
     align-items:center;
   }
   .hero h1{
-    font-size:clamp(38px, 4.6vw, 60px);
-    margin-bottom:22px;
+    font-size:clamp(36px, 4.4vw, 56px);
+    margin-bottom:20px;
   }
   .hero h1 .accent{
     font-style:italic;
@@ -156,14 +160,14 @@
     color:var(--gold-dark);
   }
   .hero p.lede{
-    font-size:18px;
+    font-size:17.5px;
     color:var(--muted);
-    max-width:46ch;
-    margin-bottom:34px;
+    max-width:48ch;
+    margin-bottom:32px;
   }
   .hero-ctas{
     display:flex; gap:16px; flex-wrap:wrap;
-    margin-bottom:40px;
+    margin-bottom:38px;
   }
   .btn-primary{
     display:inline-flex; align-items:center; gap:10px;
@@ -186,24 +190,24 @@
     border-radius:var(--radius);
     transition:background .2s ease;
   }
-  .btn-ghost:hover{background:rgba(31,61,51,0.06);}
+  .btn-ghost:hover{background:rgba(38,70,58,0.07);}
 
   .trust-row{
-    display:flex; gap:34px; flex-wrap:wrap;
-    padding-top:28px;
+    display:flex; gap:32px; flex-wrap:wrap;
+    padding-top:26px;
     border-top:1px solid var(--line);
   }
   .trust-item{
     font-family:'IBM Plex Mono', monospace;
     font-size:12px;
     color:var(--muted);
-    max-width:16ch;
+    max-width:17ch;
     letter-spacing:0.01em;
   }
   .trust-item b{
     display:block;
     font-family:'Fraunces', serif;
-    font-size:26px;
+    font-size:25px;
     font-weight:600;
     color:var(--pine-dark);
     margin-bottom:2px;
@@ -214,10 +218,8 @@
     position:relative;
     display:flex; justify-content:center;
   }
-  .spine-wrap svg{width:100%; height:auto; max-width:400px;}
-  .spine-point{
-    animation:pulse 2.8s ease-in-out infinite;
-  }
+  .spine-wrap svg{width:100%; height:auto; max-width:380px;}
+  .spine-point{animation:pulse 2.8s ease-in-out infinite;}
   .spine-point:nth-child(2){animation-delay:.35s;}
   .spine-point:nth-child(3){animation-delay:.7s;}
   .spine-point:nth-child(4){animation-delay:1.05s;}
@@ -229,53 +231,77 @@
   }
 
   /* ---------- MERIDIAN DIVIDER ---------- */
-  .meridian-divider{
-    width:100%; height:34px;
-    margin:0 auto;
-    display:block;
-    opacity:0.55;
+  .meridian-divider{width:100%; height:34px; margin:0 auto; display:block; opacity:0.5;}
+
+  /* ---------- SECTION HEAD ---------- */
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .section-head h2{font-size:clamp(27px,3.1vw,38px);}
+  .section-head p{color:var(--muted); font-size:16px; margin-top:14px;}
+
+  /* ---------- POR QUE ELEGIRNOS ---------- */
+  .porque{padding:88px 0; background:var(--sage); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .porque-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:26px;
   }
+  .porque-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:28px 24px;
+    border-radius:var(--radius);
+  }
+  .porque-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px; color:var(--gold-dark);
+    letter-spacing:.08em;
+    display:block; margin-bottom:16px;
+  }
+  .porque-card h3{font-size:17.5px; margin-bottom:10px;}
+  .porque-card p{font-size:14px; color:var(--muted);}
 
   /* ---------- SERVICIOS ---------- */
-  .servicios{padding:96px 0; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .section-head{
-    max-width:640px;
-    margin-bottom:56px;
-  }
-  .section-head h2{font-size:clamp(28px,3.2vw,40px);}
-  .section-head p{color:var(--muted); font-size:16.5px; margin-top:14px;}
-
+  .servicios{padding:92px 0; background:var(--card); border-bottom:1px solid var(--line);}
   .servicio-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:28px;
+    grid-template-columns:repeat(3, 1fr);
+    gap:26px;
   }
   .servicio-card{
     background:var(--paper);
     border:1px solid var(--line);
-    padding:38px 34px;
+    padding:34px 30px;
     border-radius:var(--radius);
     position:relative;
+    display:flex; flex-direction:column;
   }
+  .servicio-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--pine);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+  }
+  .servicio-icon svg{width:22px; height:22px; stroke:#fff; fill:none;}
   .servicio-card .num{
     font-family:'IBM Plex Mono', monospace;
-    font-size:12px;
+    font-size:11.5px;
     color:var(--gold-dark);
     letter-spacing:.1em;
-    margin-bottom:18px;
+    margin-bottom:14px;
     display:block;
   }
-  .servicio-card h3{font-size:24px; margin-bottom:14px;}
-  .servicio-card p{color:var(--muted); font-size:15px; margin-bottom:20px;}
-  .servicio-card ul{display:flex; flex-direction:column; gap:9px;}
+  .servicio-card h3{font-size:21px; margin-bottom:12px;}
+  .servicio-card p.desc{color:var(--muted); font-size:14.5px; margin-bottom:18px;}
+  .servicio-card ul{display:flex; flex-direction:column; gap:8px; margin-top:auto;}
   .servicio-card li{
-    font-size:14.5px;
-    display:flex; align-items:flex-start; gap:10px;
+    font-size:14px;
+    display:flex; align-items:flex-start; gap:9px;
     color:var(--ink);
   }
   .servicio-card li::before{
     content:"";
-    width:6px; height:6px;
+    width:5px; height:5px;
     border-radius:50%;
     background:var(--gold-dark);
     margin-top:7px;
@@ -283,21 +309,17 @@
   }
 
   /* ---------- EVIDENCIA ---------- */
-  .evidencia{padding:96px 0; background:var(--pine); color:#EDEFE6;}
+  .evidencia{padding:92px 0; background:var(--pine-dark); color:#E7EBE3;}
   .evidencia .section-head h2{color:#fff;}
-  .evidencia .section-head p{color:#C6D0C7;}
+  .evidencia .section-head p{color:#B9C4B7;}
   .evidencia .eyebrow{color:#D9B36C;}
   .evidencia .eyebrow::before{background:#D9B36C;}
 
-  .evid-grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:22px;
-  }
+  .evid-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px;}
   .evid-card{
-    background:rgba(255,255,255,0.04);
-    border:1px solid rgba(255,255,255,0.14);
-    padding:28px 26px;
+    background:rgba(255,255,255,0.045);
+    border:1px solid rgba(255,255,255,0.13);
+    padding:26px 24px;
     border-radius:var(--radius);
   }
   .evid-tag{
@@ -310,201 +332,182 @@
     background:#D9B36C;
     padding:3px 9px;
     border-radius:2px;
-    margin-bottom:16px;
+    margin-bottom:15px;
   }
-  .evid-card h4{
-    color:#fff;
-    font-size:19px;
-    margin-bottom:10px;
-    font-weight:600;
-  }
-  .evid-card p{
-    font-size:14.5px;
-    color:#C6D0C7;
-    margin-bottom:14px;
-  }
+  .evid-card h4{color:#fff; font-size:18.5px; margin-bottom:10px; font-weight:600;}
+  .evid-card p{font-size:14px; color:#C2CBC0; margin-bottom:14px;}
   .evid-source{
     font-family:'IBM Plex Mono', monospace;
-    font-size:11.5px;
-    color:#93A594;
-    border-top:1px solid rgba(255,255,255,0.14);
-    padding-top:12px;
+    font-size:11px;
+    color:#8FA091;
+    border-top:1px solid rgba(255,255,255,0.13);
+    padding-top:11px;
   }
   .evid-disclaimer{
-    margin-top:40px;
-    font-size:13px;
-    color:#93A594;
-    max-width:74ch;
-    padding-top:24px;
-    border-top:1px solid rgba(255,255,255,0.14);
+    margin-top:38px; font-size:12.5px; color:#8FA091; max-width:74ch;
+    padding-top:22px; border-top:1px solid rgba(255,255,255,0.13);
+  }
+
+  /* ---------- STATS ---------- */
+  .stats{padding:64px 0; background:var(--paper);}
+  .stats-grid{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:20px; text-align:center;
+  }
+  .stat-num{
+    font-family:'Fraunces', serif; font-weight:600; font-style:italic;
+    font-size:clamp(34px,4vw,48px);
+    color:var(--gold-dark);
+    display:block;
+  }
+  .stat-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.06em;
+    margin-top:6px;
   }
 
   /* ---------- PROCESO ---------- */
-  .proceso{padding:96px 0; background:var(--paper);}
-  .pasos{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:0;
-    counter-reset:paso;
-  }
-  .paso{
-    position:relative;
-    padding:0 22px 0 0;
-    border-right:1px solid var(--line);
-  }
+  .proceso{padding:92px 0; background:var(--sage); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .pasos{display:grid; grid-template-columns:repeat(4, 1fr); gap:0;}
+  .paso{position:relative; padding:0 22px 0 0; border-right:1px solid var(--line);}
   .paso:last-child{border-right:none;}
   .paso-num{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-size:38px;
-    color:var(--gold-dark);
-    margin-bottom:16px;
-    display:block;
+    font-family:'Fraunces', serif; font-style:italic; font-size:36px;
+    color:var(--gold-dark); margin-bottom:14px; display:block;
   }
-  .paso h4{font-size:17px; margin-bottom:10px;}
-  .paso p{font-size:14px; color:var(--muted);}
+  .paso h4{font-size:16.5px; margin-bottom:9px;}
+  .paso p{font-size:13.5px; color:var(--muted);}
+
+  /* ---------- ESPACIO (ambiente, sin fotos externas) ---------- */
+  .espacio{padding:92px 0; background:var(--card);}
+  .espacio-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;}
+  .espacio-card{
+    aspect-ratio:1/1.1;
+    background:var(--pine);
+    border-radius:var(--radius);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:22px;
+    position:relative;
+    overflow:hidden;
+  }
+  .espacio-card::before{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 30% 20%, rgba(184,137,74,0.35), transparent 60%);
+  }
+  .espacio-card:nth-child(2){background:var(--gold-dark);}
+  .espacio-card:nth-child(2)::before{background:radial-gradient(circle at 70% 25%, rgba(38,70,58,0.35), transparent 60%);}
+  .espacio-card:nth-child(3){background:var(--pine-dark);}
+  .espacio-card:nth-child(3)::before{background:radial-gradient(circle at 25% 70%, rgba(184,137,74,0.3), transparent 60%);}
+  .espacio-card:nth-child(4){background:var(--clay);}
+  .espacio-card:nth-child(4)::before{background:radial-gradient(circle at 65% 65%, rgba(38,70,58,0.3), transparent 60%);}
+  .espacio-card span{position:relative; color:#fff; font-size:13.5px; font-weight:500; z-index:1;}
 
   /* ---------- TESTIMONIOS ---------- */
-  .testimonios{padding:96px 0; background:var(--card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .testi-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:24px;
-  }
-  .testi-card{
-    padding:30px 28px;
-    background:var(--paper);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-  }
-  .testi-stars{color:var(--gold-dark); font-size:14px; margin-bottom:16px; letter-spacing:2px;}
-  .testi-card p{font-size:15px; color:var(--ink); margin-bottom:20px; font-style:italic; font-family:'Fraunces', serif; font-weight:400; line-height:1.5;}
-  .testi-name{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);}
+  .testimonios{padding:92px 0; background:var(--paper); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .testi-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;}
+  .testi-card{padding:28px 26px; background:var(--card); border:1px solid var(--line); border-radius:var(--radius);}
+  .testi-stars{color:var(--gold-dark); font-size:14px; margin-bottom:15px; letter-spacing:2px;}
+  .testi-card p{font-size:14.5px; color:var(--ink); margin-bottom:18px; font-style:italic; font-family:'Fraunces', serif; font-weight:400; line-height:1.5;}
+  .testi-name{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--muted);}
 
-  /* ---------- UBICACION / CONTACTO ---------- */
-  .contacto{padding:96px 0;}
-  .contacto-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:start;
-  }
-  .info-list{margin-top:28px; display:flex; flex-direction:column; gap:22px;}
-  .info-item{display:flex; gap:16px; align-items:flex-start;}
+  /* ---------- CONTACTO ---------- */
+  .contacto{padding:92px 0; background:var(--card);}
+  .contacto-grid{display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:start;}
+  .info-list{margin-top:26px; display:flex; flex-direction:column; gap:20px;}
+  .info-item{display:flex; gap:15px; align-items:flex-start;}
   .info-icon{
-    width:38px; height:38px; flex-shrink:0;
-    border:1px solid var(--line);
-    border-radius:50%;
+    width:36px; height:36px; flex-shrink:0;
+    border:1px solid var(--line); border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     color:var(--pine);
   }
   .info-item b{display:block; font-size:14.5px; margin-bottom:2px;}
-  .info-item span{font-size:14px; color:var(--muted);}
+  .info-item span{font-size:13.5px; color:var(--muted);}
 
-  .contact-card{
-    background:var(--pine);
-    color:#fff;
-    padding:44px 38px;
-    border-radius:var(--radius);
+  .contact-card{background:var(--pine-dark); color:#fff; padding:40px 36px; border-radius:var(--radius);}
+  .contact-card h3{color:#fff; font-size:22px; margin-bottom:6px;}
+  .contact-card > p.sub{color:#B9C4B7; font-size:14px; margin-bottom:24px;}
+
+  .form-field{margin-bottom:14px;}
+  .form-field label{
+    display:block; font-family:'IBM Plex Mono', monospace; font-size:11px;
+    letter-spacing:.06em; text-transform:uppercase; color:#9FB09E; margin-bottom:6px;
   }
-  .contact-card h3{color:#fff; font-size:24px; margin-bottom:12px;}
-  .contact-card p{color:#C6D0C7; font-size:14.5px; margin-bottom:28px;}
-  .contact-card .btn-wa{
-    width:100%;
-    justify-content:center;
-    padding:16px;
-    font-size:15.5px;
+  .form-field input, .form-field select, .form-field textarea{
+    width:100%; background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    color:#fff; font-family:'Inter', sans-serif; font-size:14px;
+    padding:11px 12px; border-radius:var(--radius);
   }
+  .form-field input::placeholder, .form-field textarea::placeholder{color:#8CA08A;}
+  .form-field textarea{resize:vertical; min-height:70px;}
+  .form-field select option{color:#111;}
+
+  .contact-card .btn-wa{width:100%; justify-content:center; padding:15px; font-size:15px; margin-top:6px; border:none; cursor:pointer;}
   .contact-card .hours{
-    margin-top:28px;
-    padding-top:24px;
-    border-top:1px solid rgba(255,255,255,0.16);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:12.5px;
-    display:flex; flex-direction:column; gap:8px;
-    color:#C6D0C7;
+    margin-top:26px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.15);
+    font-family:'IBM Plex Mono', monospace; font-size:12px;
+    display:flex; flex-direction:column; gap:7px; color:#B9C4B7;
   }
   .hours-row{display:flex; justify-content:space-between;}
 
   /* ---------- FLOATING WA ---------- */
   .float-wa{
-    position:fixed;
-    bottom:26px; right:26px;
-    width:58px; height:58px;
-    background:var(--wa);
-    border-radius:50%;
+    position:fixed; bottom:24px; right:24px;
+    width:56px; height:56px; background:var(--wa); border-radius:50%;
     display:flex; align-items:center; justify-content:center;
-    box-shadow:0 6px 20px rgba(37,211,102,0.45);
-    z-index:200;
-    animation:floatpulse 2.6s ease-in-out infinite;
+    box-shadow:0 6px 18px rgba(34,184,92,0.4);
+    z-index:200; animation:floatpulse 2.6s ease-in-out infinite;
   }
-  .float-wa svg{width:28px; height:28px; fill:#fff;}
+  .float-wa svg{width:27px; height:27px; fill:#fff;}
   @keyframes floatpulse{
-    0%,100%{box-shadow:0 6px 20px rgba(37,211,102,0.45);}
-    50%{box-shadow:0 6px 28px rgba(37,211,102,0.7);}
+    0%,100%{box-shadow:0 6px 18px rgba(34,184,92,0.4);}
+    50%{box-shadow:0 6px 26px rgba(34,184,92,0.65);}
   }
 
   /* ---------- FOOTER ---------- */
-  footer{
-    background:var(--pine-dark);
-    color:#9AAA9B;
-    padding:56px 0 30px;
-  }
-  .footer-grid{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
-    gap:40px;
-    padding-bottom:36px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
-  }
+  footer{background:var(--pine-dark); color:#93A491; padding:52px 0 28px;}
+  .footer-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:38px; padding-bottom:32px; border-bottom:1px solid rgba(255,255,255,0.1);}
   footer .logo{color:#fff;}
   footer .logo em{color:#D9B36C;}
-  footer p.desc{font-size:13.5px; margin-top:14px; max-width:34ch; line-height:1.6;}
-  footer h5{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:11px;
-    letter-spacing:.1em;
-    text-transform:uppercase;
-    color:#6E8071;
-    margin-bottom:16px;
-  }
-  footer ul{display:flex; flex-direction:column; gap:10px;}
-  footer ul a{font-size:14px; color:#C6D0C7;}
+  footer p.desc{font-size:13px; margin-top:13px; max-width:34ch; line-height:1.6;}
+  footer h5{font-family:'IBM Plex Mono', monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#63745F; margin-bottom:15px;}
+  footer ul{display:flex; flex-direction:column; gap:9px;}
+  footer ul a{font-size:13.5px; color:#B9C4B7;}
   footer ul a:hover{color:#fff;}
-  .footer-bottom{
-    padding-top:24px;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-    font-size:12.5px;
-  }
+  .footer-bottom{padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12px;}
 
   /* ---------- REVEAL ---------- */
   .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1; transform:translateY(0);}
 
   /* ---------- RESPONSIVE ---------- */
-  @media (max-width:920px){
-    .hero .wrap{grid-template-columns:1fr; gap:40px;}
-    .spine-wrap{order:-1; max-width:260px; margin:0 auto;}
+  @media (max-width:960px){
+    .hero .wrap{grid-template-columns:1fr; gap:36px;}
+    .spine-wrap{order:-1; max-width:240px; margin:0 auto;}
+    .porque-grid{grid-template-columns:1fr 1fr;}
     .servicio-grid, .evid-grid, .testi-grid, .contacto-grid{grid-template-columns:1fr;}
-    .pasos{grid-template-columns:1fr 1fr; row-gap:32px;}
+    .stats-grid{grid-template-columns:1fr 1fr; row-gap:26px;}
+    .pasos{grid-template-columns:1fr 1fr; row-gap:30px;}
     .paso{border-right:none;}
+    .espacio-grid{grid-template-columns:1fr 1fr;}
     .footer-grid{grid-template-columns:1fr;}
     .nav-links{
-      position:absolute; top:78px; left:0; right:0;
-      background:var(--paper);
-      flex-direction:column; gap:0;
-      border-bottom:1px solid var(--line);
-      display:none;
+      position:absolute; top:78px; left:0; right:0; background:var(--paper);
+      flex-direction:column; gap:0; border-bottom:1px solid var(--line); display:none;
     }
     .nav-links.open{display:flex;}
-    .nav-links a{padding:16px 32px; width:100%; border-bottom:1px solid var(--line);}
+    .nav-links a{padding:15px 32px; width:100%; border-bottom:1px solid var(--line);}
     .menu-toggle{display:block;}
     .nav-cta .btn-wa span{display:none;}
   }
   @media (max-width:560px){
     .wrap{padding:0 20px;}
-    .trust-row{gap:24px;}
+    .trust-row{gap:22px;}
     .hero-ctas{flex-direction:column; align-items:stretch;}
+    .porque-grid, .espacio-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -512,12 +515,12 @@
 
 <header>
   <nav class="wrap">
-    <a href="#top" class="logo">Klkas chidas <em>Clínica</em></a>
+    <a href="#top" class="logo">El Huesudo <em>Clínica</em></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#porque">Por qué elegirnos</a></li>
+      <li><a href="#servicios">Tratamientos</a></li>
+      <li><a href="#proceso">Proceso</a></li>
       <li><a href="#evidencia">Evidencia</a></li>
-      <li><a href="#proceso">Tu primera visita</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-cta">
@@ -538,14 +541,14 @@
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Quiropráctica &amp; Acupuntura</p>
+        <p class="eyebrow">Acupuntura · Quiropráctica · Masaje</p>
         <h1>Tu cuerpo tiene<br><span class="accent">una lógica.</span><br>La restauramos.</h1>
-        <p class="lede">Tratamiento manual y acupuntura orientados a aliviar dolor de espalda, cuello y cabeza, con un enfoque basado en evidencia clínica y seguimiento personalizado.</p>
+        <p class="lede">Combinamos acupuntura, quiropráctica y masaje de rehabilitación para tratar el origen del dolor —no solo el síntoma— con un enfoque basado en evidencia clínica.</p>
         <div class="hero-ctas">
           <a class="btn-primary" href="https://wa.me/5215522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener">
             Agendar por WhatsApp →
           </a>
-          <a class="btn-ghost" href="#evidencia">Ver el respaldo clínico</a>
+          <a class="btn-ghost" href="#servicios">Ver tratamientos</a>
         </div>
         <div class="trust-row">
           <div class="trust-item"><b>+20</b>años de práctica clínica</div>
@@ -557,8 +560,8 @@
       <div class="spine-wrap">
         <svg viewBox="0 0 300 460" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M150 20 C 120 70, 180 110, 150 160 C 120 210, 180 250, 150 300 C 125 340, 175 380, 150 440"
-                stroke="#1F3D33" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
-          <g stroke="#1F3D33" stroke-width="1.4" opacity="0.55">
+                stroke="#26463A" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+          <g stroke="#26463A" stroke-width="1.4" opacity="0.5">
             <rect x="134" y="34" width="32" height="12" rx="3" transform="rotate(-6 150 40)"/>
             <rect x="126" y="66" width="32" height="12" rx="3" transform="rotate(10 150 72)"/>
             <rect x="132" y="98" width="32" height="12" rx="3" transform="rotate(-8 150 104)"/>
@@ -572,56 +575,107 @@
             <rect x="128" y="354" width="32" height="12" rx="3" transform="rotate(-5 150 360)"/>
             <rect x="132" y="386" width="30" height="12" rx="3" transform="rotate(4 150 392)"/>
           </g>
-          <circle class="spine-point" cx="150" cy="52" r="4" fill="#B8863E"/>
-          <circle class="spine-point" cx="168" cy="112" r="4" fill="#B8863E"/>
-          <circle class="spine-point" cx="132" cy="176" r="4" fill="#B8863E"/>
-          <circle class="spine-point" cx="162" cy="244" r="4" fill="#B8863E"/>
-          <circle class="spine-point" cx="128" cy="308" r="4" fill="#B8863E"/>
-          <circle class="spine-point" cx="150" cy="376" r="4" fill="#B8863E"/>
+          <circle class="spine-point" cx="150" cy="52" r="4" fill="#B8894A"/>
+          <circle class="spine-point" cx="168" cy="112" r="4" fill="#B8894A"/>
+          <circle class="spine-point" cx="132" cy="176" r="4" fill="#B8894A"/>
+          <circle class="spine-point" cx="162" cy="244" r="4" fill="#B8894A"/>
+          <circle class="spine-point" cx="128" cy="308" r="4" fill="#B8894A"/>
+          <circle class="spine-point" cx="150" cy="376" r="4" fill="#B8894A"/>
         </svg>
       </div>
     </div>
   </section>
 
   <svg class="meridian-divider" viewBox="0 0 1180 34" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 17 Q 150 2, 300 17 T 600 17 T 900 17 T 1180 17" stroke="#B8863E" stroke-width="1" fill="none"/>
-    <circle cx="150" cy="9" r="2.5" fill="#B8863E"/>
-    <circle cx="450" cy="24" r="2.5" fill="#B8863E"/>
-    <circle cx="750" cy="9" r="2.5" fill="#B8863E"/>
-    <circle cx="1050" cy="24" r="2.5" fill="#B8863E"/>
+    <path d="M0 17 Q 150 2, 300 17 T 600 17 T 900 17 T 1180 17" stroke="#B8894A" stroke-width="1" fill="none"/>
+    <circle cx="150" cy="9" r="2.5" fill="#B8894A"/>
+    <circle cx="450" cy="24" r="2.5" fill="#B8894A"/>
+    <circle cx="750" cy="9" r="2.5" fill="#B8894A"/>
+    <circle cx="1050" cy="24" r="2.5" fill="#B8894A"/>
   </svg>
+
+  <!-- POR QUE ELEGIRNOS -->
+  <section class="porque" id="porque">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">La diferencia</p>
+        <h2>El dolor no siempre se cura con reposo</h2>
+        <p>A veces necesita el enfoque correcto: una combinación de técnicas trabajando sobre el origen del padecimiento, no solo el síntoma.</p>
+      </div>
+      <div class="porque-grid">
+        <div class="porque-card reveal">
+          <span class="porque-num">01</span>
+          <h3>Enfoque integral</h3>
+          <p>Acupuntura, quiropráctica y masaje trabajando juntos en un mismo tratamiento, diseñado para tu padecimiento.</p>
+        </div>
+        <div class="porque-card reveal">
+          <span class="porque-num">02</span>
+          <h3>Técnicas milenarias</h3>
+          <p>Métodos orientales combinados con corrección postural y rehabilitación moderna, respaldados por evidencia.</p>
+        </div>
+        <div class="porque-card reveal">
+          <span class="porque-num">03</span>
+          <h3>Atención personalizada</h3>
+          <p>Cada sesión guiada directamente por tu especialista, sin intermediarios, con seguimiento real de tu evolución.</p>
+        </div>
+        <div class="porque-card reveal">
+          <span class="porque-num">04</span>
+          <h3>Ubicación accesible</h3>
+          <p>Consultorio en el corazón de Escandón, CDMX, de fácil acceso y con atención únicamente con cita previa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- SERVICIOS -->
   <section class="servicios" id="servicios">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Servicios</p>
-        <h2>Dos disciplinas, un mismo objetivo</h2>
-        <p>Cada tratamiento se adapta a tu diagnóstico. Muchos pacientes combinan ambos enfoques dentro de un mismo plan de recuperación.</p>
+        <p class="eyebrow">Tratamientos</p>
+        <h2>Cada padecimiento tiene su propio tratamiento</h2>
+        <p>Dolor lumbar, migraña, ciática o tensión muscular: elegimos la combinación correcta para tu caso.</p>
       </div>
 
       <div class="servicio-grid">
         <div class="servicio-card reveal">
-          <span class="num">01 — Manual</span>
-          <h3>Quiropráctica</h3>
-          <p>Ajustes manuales enfocados en la columna vertebral y articulaciones para mejorar la movilidad y reducir la compresión nerviosa.</p>
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4 12H2M22 12h-2M6 6l-1.5-1.5M19.5 19.5 18 18M18 6l1.5-1.5M4.5 19.5 6 18"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <span class="num">01 — Puntos</span>
+          <h3>Acupuntura</h3>
+          <p class="desc">Estimulación de puntos energéticos para aliviar migraña, estrés y desequilibrios del sistema nervioso.</p>
           <ul>
-            <li>Dolor lumbar y cervical</li>
-            <li>Hernias discales leves a moderadas</li>
-            <li>Rehabilitación postural</li>
-            <li>Dolor derivado de malas posturas laborales</li>
+            <li>Migraña y cefalea tensional</li>
+            <li>Manejo del estrés y ansiedad leve</li>
+            <li>Apoyo en recuperación deportiva</li>
           </ul>
         </div>
 
         <div class="servicio-card reveal">
-          <span class="num">02 — Puntos</span>
-          <h3>Acupuntura</h3>
-          <p>Inserción de agujas estériles en puntos específicos para estimular la respuesta natural del cuerpo ante el dolor y la inflamación.</p>
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></svg>
+          </div>
+          <span class="num">02 — Manual</span>
+          <h3>Quiropráctica</h3>
+          <p class="desc">Ajustes especializados en columna, cadera y articulaciones que devuelven el alineamiento natural del cuerpo.</p>
           <ul>
-            <li>Migraña y cefalea tensional</li>
-            <li>Dolor crónico articular</li>
-            <li>Manejo del estrés y ansiedad leve</li>
-            <li>Apoyo en recuperación deportiva</li>
+            <li>Dolor lumbar y cervical</li>
+            <li>Hernias discales leves a moderadas</li>
+            <li>Rehabilitación postural</li>
+          </ul>
+        </div>
+
+        <div class="servicio-card reveal">
+          <div class="servicio-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12c2-4 4-6 8-6s6 2 8 6c-2 4-4 6-8 6s-6-2-8-6Z"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <span class="num">03 — Oriental</span>
+          <h3>Masaje de Rehabilitación</h3>
+          <p class="desc">Tuina, Shiatsu y masaje oriental para tratar ciática, lumbalgia, desgarres y dolores de espalda.</p>
+          <ul>
+            <li>Ciática y lumbalgia</li>
+            <li>Desgarres musculares</li>
+            <li>Recuperación profunda post-lesión</li>
           </ul>
         </div>
       </div>
@@ -644,25 +698,22 @@
           <p>Revisiones sistemáticas describen beneficios comparables a otros tratamientos conservadores para dolor lumbar agudo y subagudo, especialmente combinada con ejercicio terapéutico.</p>
           <p class="evid-source">Fuente: revisiones Cochrane sobre manipulación espinal — consulta el estudio completo con tu especialista.</p>
         </div>
-
         <div class="evid-card reveal">
           <span class="evid-tag">Migraña</span>
           <h4>Acupuntura para cefaleas</h4>
           <p>Ensayos clínicos reportan reducción en frecuencia de episodios de migraña y cefalea tensional en tratamientos sostenidos de varias semanas.</p>
           <p class="evid-source">Fuente: NCCIH (National Center for Complementary and Integrative Health).</p>
         </div>
-
         <div class="evid-card reveal">
           <span class="evid-tag">Cervicalgia</span>
           <h4>Terapia manual cervical</h4>
           <p>La evidencia disponible es moderada: útil como parte de un plan integral, no como tratamiento único para casos de dolor cervical crónico.</p>
           <p class="evid-source">Fuente: guías clínicas de manejo de dolor musculoesquelético, OMS.</p>
         </div>
-
         <div class="evid-card reveal">
-          <span class="evid-tag">Dolor crónico</span>
-          <h4>Acupuntura y manejo del dolor</h4>
-          <p>Metaanálisis sugieren efecto superior al placebo en dolor osteoarticular crónico, aunque el tamaño del efecto varía según la condición tratada.</p>
+          <span class="evid-tag">Ciática</span>
+          <h4>Masaje y terapia manual combinada</h4>
+          <p>La combinación de masaje de rehabilitación con corrección postural muestra mejoría funcional en dolor irradiado hacia la pierna en varios estudios observacionales.</p>
           <p class="evid-source">Fuente: literatura recopilada por NCCIH e institutos de salud pública.</p>
         </div>
       </div>
@@ -671,35 +722,75 @@
     </div>
   </section>
 
+  <!-- STATS -->
+  <section class="stats">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="reveal">
+          <span class="stat-num" data-count="3">0</span>
+          <div class="stat-label">Técnicas combinadas</div>
+        </div>
+        <div class="reveal">
+          <span class="stat-num" data-count="5">0</span>
+          <div class="stat-label">Padecimientos que tratamos</div>
+        </div>
+        <div class="reveal">
+          <span class="stat-num" data-count="100" data-suffix="+">0</span>
+          <div class="stat-label">Pacientes atendidos</div>
+        </div>
+        <div class="reveal">
+          <span class="stat-num" data-count="20" data-suffix="+">0</span>
+          <div class="stat-label">Años de experiencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESO -->
   <section class="proceso" id="proceso">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="eyebrow">Tu primera visita</p>
-        <h2>Qué esperar en consulta</h2>
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Tu alivio, paso a paso</h2>
       </div>
-
       <div class="pasos">
         <div class="paso reveal">
           <span class="paso-num">1</span>
-          <h4>Evaluación inicial</h4>
-          <p>Revisión de historial clínico, postura y rango de movimiento para entender el origen del dolor.</p>
+          <h4>Valoración inicial</h4>
+          <p>Escuchamos tu padecimiento y evaluamos el origen del dolor: columna, articulaciones o sistema nervioso.</p>
         </div>
         <div class="paso reveal">
           <span class="paso-num">2</span>
           <h4>Diagnóstico funcional</h4>
-          <p>Se define si el caso responde mejor a manipulación, acupuntura, o una combinación de ambas.</p>
+          <p>Se define si el caso responde mejor a acupuntura, quiropráctica, masaje, o una combinación.</p>
         </div>
         <div class="paso reveal">
           <span class="paso-num">3</span>
-          <h4>Plan de tratamiento</h4>
-          <p>Número estimado de sesiones, frecuencia recomendada y objetivos medibles de mejora.</p>
+          <h4>Tratamiento personalizado</h4>
+          <p>Diseñamos la combinación exacta de técnicas que tu cuerpo necesita, con objetivos medibles.</p>
         </div>
         <div class="paso reveal">
           <span class="paso-num">4</span>
           <h4>Seguimiento</h4>
-          <p>Ajustes al plan según tu evolución, con reevaluaciones periódicas del progreso.</p>
+          <p>Acompañamos tu recuperación sesión a sesión, con reevaluaciones periódicas del progreso.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPACIO -->
+  <section class="espacio" id="espacio">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Nuestro espacio</p>
+        <h2>Un ambiente pensado para tu sanación</h2>
+        <p>Cada sesión se realiza en un espacio diseñado para tu comodidad, privacidad y relajación total.</p>
+      </div>
+      <div class="espacio-grid">
+        <div class="espacio-card reveal"><span>Sala de acupuntura</span></div>
+        <div class="espacio-card reveal"><span>Área de ajuste quiropráctico</span></div>
+        <div class="espacio-card reveal"><span>Cabina de masaje</span></div>
+        <div class="espacio-card reveal"><span>Recepción y espera</span></div>
       </div>
     </div>
   </section>
@@ -711,7 +802,6 @@
         <p class="eyebrow">Testimonios</p>
         <h2>Pacientes que ya recuperaron movilidad</h2>
       </div>
-
       <div class="testi-grid">
         <div class="testi-card reveal">
           <div class="testi-stars">★★★★★</div>
@@ -738,8 +828,8 @@
       <div class="contacto-grid">
         <div class="reveal">
           <p class="eyebrow">Contacto</p>
-          <h2>Agenda tu consulta</h2>
-          <p style="color:var(--muted); margin-top:14px; max-width:44ch;">Escríbenos por WhatsApp con tu disponibilidad y motivo de consulta. Respondemos en horario de atención.</p>
+          <h2>Agenda tu cita hoy mismo</h2>
+          <p style="color:var(--muted); margin-top:14px; max-width:44ch;">Escríbenos por WhatsApp o llena el formulario. Te respondemos directamente para agendar tu valoración.</p>
 
           <div class="info-list">
             <div class="info-item">
@@ -747,8 +837,8 @@
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <div>
-                <b>Dirección</b>
-                <span>Avenida Revolución 114, Escandon, CDMX</span>
+                <b>Ubicación</b>
+                <span>Avenida Revolución 114, Escandón, CDMX</span>
               </div>
             </div>
             <div class="info-item">
@@ -765,24 +855,45 @@
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
               </div>
               <div>
-                <b>Citas</b>
-                <span>Con cita previa — respuesta el mismo día</span>
+                <b>Horario</b>
+                <span>Lun–Sáb 9:00–20:00 · Dom 10:00–21:00, con cita previa</span>
               </div>
             </div>
           </div>
         </div>
 
         <div class="contact-card reveal">
-          <h3>Escríbenos directo</h3>
-          <p>Cuéntanos brevemente tu molestia y te confirmamos disponibilidad de horario.</p>
-          <a class="btn-wa" href="https://wa.me/5215522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2m0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.29"/></svg>
-            <span>Escribir por WhatsApp</span>
-          </a>
+          <h3>Solicitar cita</h3>
+          <p class="sub">Completa tus datos y te llevamos directo a WhatsApp con el mensaje listo.</p>
+
+          <form id="citaForm">
+            <div class="form-field">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-field">
+              <label for="necesidad">¿Qué necesitas?</label>
+              <select id="necesidad">
+                <option>Valoración inicial</option>
+                <option>Acupuntura</option>
+                <option>Quiropráctica</option>
+                <option>Masaje de rehabilitación</option>
+                <option>Otro padecimiento</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="mensaje">Cuéntanos qué te duele</label>
+              <textarea id="mensaje" placeholder="Describe brevemente tu molestia..."></textarea>
+            </div>
+            <button type="submit" class="btn-wa">
+              <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2m0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.29"/></svg>
+              <span>Agendar por WhatsApp</span>
+            </button>
+          </form>
+
           <div class="hours">
-            <div class="hours-row"><span>Lunes – Viernes</span><span>9:00 – 20:00</span></div>
-            <div class="hours-row"><span>Sábado</span><span>9:00 – 20:00</span></div>
-            <div class="hours-row"><span>Domingo</span><span>10:00 - 21:00</span></div>
+            <div class="hours-row"><span>Lunes – Sábado</span><span>9:00 – 20:00</span></div>
+            <div class="hours-row"><span>Domingo</span><span>10:00 – 21:00</span></div>
           </div>
         </div>
       </div>
@@ -791,7 +902,7 @@
 
 </main>
 
-<a class="float-wa" href="https://wa.me/525522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+<a class="float-wa" href="https://wa.me/5215522417515?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2m0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.24-8.25 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.08s.89 2.42 1.02 2.59c.12.16 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.11-.23-.17-.48-.29"/></svg>
 </a>
 
@@ -799,15 +910,15 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="#top" class="logo">El klkas <em>Clínica</em></a>
-        <p class="desc">Quiropráctica y acupuntura con enfoque clínico y seguimiento personalizado a cada paciente.</p>
+        <a href="#top" class="logo">El Huesudo <em>Clínica</em></a>
+        <p class="desc">Acupuntura, quiropráctica y masaje de rehabilitación con enfoque clínico y seguimiento personalizado.</p>
       </div>
       <div>
         <h5>Navegación</h5>
         <ul>
-          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#porque">Por qué elegirnos</a></li>
+          <li><a href="#servicios">Tratamientos</a></li>
           <li><a href="#evidencia">Evidencia</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
@@ -816,12 +927,12 @@
         <ul>
           <li>+52 55 2241 7515</li>
           <li>[correo@ejemplo.com]</li>
-          <li>[Ciudad, Estado]</li>
+          <li>Escandón, CDMX</li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span id="year"></span> [Tu Nombre] Clínica. Todos los derechos reservados.</span>
+      <span>© <span id="year"></span> El Huesudo Clínica. Todos los derechos reservados.</span>
       <span>Este sitio ofrece información general y no sustituye una valoración médica presencial.</span>
     </div>
   </div>
@@ -841,15 +952,51 @@
     menuToggle.setAttribute('aria-expanded', 'false');
   }));
 
-  const observer = new IntersectionObserver((entries) => {
+  /* Reveal on scroll */
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in');
-        observer.unobserve(entry.target);
+        revealObserver.unobserve(entry.target);
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* Count-up stats */
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+        function tick(now){
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = Math.floor(progress * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.stat-num').forEach(el => countObserver.observe(el));
+
+  /* Formulario -> WhatsApp */
+  const citaForm = document.getElementById('citaForm');
+  citaForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const necesidad = document.getElementById('necesidad').value;
+    const mensaje = document.getElementById('mensaje').value.trim();
+    let texto = `Hola, soy ${nombre || '[nombre]'}. Me interesa: ${necesidad}.`;
+    if (mensaje) texto += ` Detalle: ${mensaje}`;
+    const url = `https://wa.me/5215522417515?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  });
 </script>
 
 </body>
