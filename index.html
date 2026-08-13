@@ -143,6 +143,17 @@
     padding:84px 0 66px;
     position:relative;
     overflow:hidden;
+    /* Fondo: textura suave por defecto (puntos + degradado, evoca los puntos
+       de acupuntura) para que no se vea vacío. Si subes una foto real,
+       colócala en /images/hero-bg.jpg y descomenta la línea de abajo:
+       background-image: linear-gradient(rgba(242,240,231,0.94),rgba(242,240,231,0.98)), url('images/hero-bg.jpg');
+       background-size: cover; background-position: center; */
+    background-image:
+      radial-gradient(circle at 85% 15%, rgba(184,137,74,0.14), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(38,70,58,0.10), transparent 50%),
+      radial-gradient(rgba(38,70,58,0.16) 1px, transparent 1.4px);
+    background-size:auto, auto, 26px 26px;
+    background-position:0 0, 0 0, 0 0;
   }
   .hero .wrap{
     display:grid;
@@ -239,7 +250,14 @@
   .section-head p{color:var(--muted); font-size:16px; margin-top:14px;}
 
   /* ---------- POR QUE ELEGIRNOS ---------- */
-  .porque{padding:88px 0; background:var(--sage); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .porque{
+    padding:88px 0; background:var(--sage);
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    /* Para foto real: guarda tu imagen en /images/porque-bg.jpg y descomenta:
+       background-image: linear-gradient(rgba(233,238,228,0.93),rgba(233,238,228,0.97)), url('images/porque-bg.jpg');
+       background-size: cover; background-position:center; */
+    background-image: radial-gradient(circle at 92% 8%, rgba(184,137,74,0.12), transparent 40%);
+  }
   .porque-grid{
     display:grid;
     grid-template-columns:repeat(4, 1fr);
@@ -379,6 +397,59 @@
   .paso h4{font-size:16.5px; margin-bottom:9px;}
   .paso p{font-size:13.5px; color:var(--muted);}
 
+  /* ---------- CONDICIONES QUE TRATAMOS ---------- */
+  .condiciones{padding:92px 0; background:var(--sage); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .cond-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
+  .cond-card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 24px; display:flex; gap:16px; align-items:flex-start;
+  }
+  .cond-icon{
+    width:42px; height:42px; flex-shrink:0; border-radius:50%;
+    background:rgba(38,70,58,0.08);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .cond-icon svg{width:20px; height:20px; stroke:var(--pine); fill:none;}
+  .cond-card h4{font-size:15.5px; margin-bottom:6px;}
+  .cond-card p{font-size:13.5px; color:var(--muted);}
+  .cond-note{
+    margin-top:32px; font-size:13.5px; color:var(--muted);
+    padding:16px 20px; background:var(--card); border-left:3px solid var(--gold-dark);
+    border-radius:var(--radius); max-width:74ch;
+  }
+
+  /* ---------- PROMO BANNER ---------- */
+  .promo{
+    background:var(--pine);
+    padding:40px 0;
+  }
+  .promo .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
+  }
+  .promo h3{color:#fff; font-size:22px; margin-bottom:6px;}
+  .promo p{color:#C9D3C6; font-size:14.5px;}
+  .promo .btn-primary{background:var(--gold-dark);}
+  .promo .btn-primary:hover{background:#7A5A2A;}
+
+  /* ---------- FAQ ---------- */
+  .faq{padding:92px 0; background:var(--card);}
+  .faq-list{max-width:800px;}
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:22px 4px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-family:'Fraunces', serif; font-size:17px; font-weight:600; color:var(--pine-dark);
+  }
+  .faq-q .plus{
+    font-family:'IBM Plex Mono', monospace; font-size:20px; color:var(--gold-dark);
+    transition:transform .25s ease; flex-shrink:0;
+  }
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .3s ease;
+  }
+  .faq-a p{padding:0 4px 22px; font-size:14.5px; color:var(--muted); max-width:68ch;}
+
   /* ---------- ESPACIO (ambiente, sin fotos externas) ---------- */
   .espacio{padding:92px 0; background:var(--card);}
   .espacio-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:20px;}
@@ -488,7 +559,8 @@
     .hero .wrap{grid-template-columns:1fr; gap:36px;}
     .spine-wrap{order:-1; max-width:240px; margin:0 auto;}
     .porque-grid{grid-template-columns:1fr 1fr;}
-    .servicio-grid, .evid-grid, .testi-grid, .contacto-grid{grid-template-columns:1fr;}
+    .servicio-grid, .evid-grid, .testi-grid, .contacto-grid, .cond-grid{grid-template-columns:1fr;}
+    .promo .wrap{flex-direction:column; align-items:flex-start; text-align:left;}
     .stats-grid{grid-template-columns:1fr 1fr; row-gap:26px;}
     .pasos{grid-template-columns:1fr 1fr; row-gap:30px;}
     .paso{border-right:none;}
@@ -519,8 +591,8 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="#porque">Por qué elegirnos</a></li>
       <li><a href="#servicios">Tratamientos</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#evidencia">Evidencia</a></li>
+      <li><a href="#condiciones">Qué tratamos</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <div class="nav-cta">
@@ -682,6 +754,74 @@
     </div>
   </section>
 
+  <!-- CONDICIONES QUE TRATAMOS -->
+  <section class="condiciones" id="condiciones">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Qué tratamos</p>
+        <h2>Los dolores más comunes después de los 30</h2>
+        <p>Entre trabajo de escritorio, estrés y los primeros signos de desgaste articular, estos son los padecimientos que más vemos en consulta.</p>
+      </div>
+      <div class="cond-grid">
+        <div class="cond-card reveal">
+          <div class="cond-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2M2 8h20M4 8v10a2 2 0 0 0 2 2h2M20 8v10a2 2 0 0 0-2 2h-2M8 20h8"/></svg>
+          </div>
+          <div>
+            <h4>Dolor lumbar de oficina</h4>
+            <p>Por pasar muchas horas sentado o con mala postura frente a la computadora.</p>
+          </div>
+        </div>
+        <div class="cond-card reveal">
+          <div class="cond-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div>
+            <h4>Cervicalgia y tensión por estrés</h4>
+            <p>Rigidez de cuello y hombros asociada a jornadas largas y carga emocional.</p>
+          </div>
+        </div>
+        <div class="cond-card reveal">
+          <div class="cond-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M6 8l6-6 6 6M6 16l6 6 6-6"/></svg>
+          </div>
+          <div>
+            <h4>Dolor de rodilla y articulaciones</h4>
+            <p>Los primeros signos de desgaste articular, comunes a partir de los 35-40 años.</p>
+          </div>
+        </div>
+        <div class="cond-card reveal">
+          <div class="cond-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <div>
+            <h4>Tendinitis de hombro</h4>
+            <p>Frecuente en quienes hacen ejercicio, cargan mochila o repiten movimientos en el trabajo.</p>
+          </div>
+        </div>
+        <div class="cond-card reveal">
+          <div class="cond-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c4-6 4-10 4-13a4 4 0 0 0-8 0c0 3 0 7 4 13Z"/></svg>
+          </div>
+          <div>
+            <h4>Ciática</h4>
+            <p>Dolor que baja por la pierna, muchas veces ligado a hernias discales leves o compresión nerviosa.</p>
+          </div>
+        </div>
+        <div class="cond-card reveal">
+          <div class="cond-icon">
+            <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          </div>
+          <div>
+            <h4>Migraña y cefalea tensional</h4>
+            <p>Episodios frecuentes de dolor de cabeza relacionados con tensión muscular y estrés acumulado.</p>
+          </div>
+        </div>
+      </div>
+      <p class="cond-note reveal">¿Tu molestia no está en la lista? Muchos padecimientos musculoesqueléticos comparten causas similares — escríbenos y te orientamos si tu caso es tratable con estas técnicas.</p>
+    </div>
+  </section>
+
   <!-- EVIDENCIA -->
   <section class="evidencia" id="evidencia">
     <div class="wrap">
@@ -822,6 +962,49 @@
     </div>
   </section>
 
+  <!-- PROMO -->
+  <section class="promo">
+    <div class="wrap">
+      <div>
+        <h3>Primera valoración con [X]% de descuento</h3>
+        <p>Válido para nuevos pacientes que agenden por WhatsApp este mes.</p>
+      </div>
+      <a class="btn-primary" href="https://wa.me/5215522417515?text=Hola%2C%20vi%20la%20promoci%C3%B3n%20de%20primera%20consulta%20y%20quisiera%20agendar" target="_blank" rel="noopener">Aprovechar promoción →</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2>Antes de agendar, resolvamos tus dudas</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Es doloroso el tratamiento?<span class="plus">+</span></button>
+          <div class="faq-a"><p>La mayoría de los pacientes reporta molestia leve o ninguna. Tanto los ajustes quiroprácticos como la acupuntura se adaptan a tu tolerancia, y siempre se explica cada paso antes de aplicarlo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Es seguro si tengo más de 40 años?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Sí. La valoración inicial identifica tu condición articular y ósea antes de definir el tratamiento. Ajustamos la técnica según edad, actividad física y padecimientos previos.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Cuántas sesiones voy a necesitar?<span class="plus">+</span></button>
+          <div class="faq-a"><p>Depende del padecimiento y su tiempo de evolución. En la primera consulta te damos un estimado realista de sesiones y frecuencia recomendada, sin compromisos forzosos.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Necesito estudios o referencia médica previa?<span class="plus">+</span></button>
+          <div class="faq-a"><p>No es obligatorio, pero si ya tienes radiografías, resonancias o un diagnóstico previo, tráelo — ayuda a personalizar el tratamiento desde la primera cita.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">¿Aceptan seguro de gastos médicos?<span class="plus">+</span></button>
+          <div class="faq-a"><p>[Indica aquí si aceptas seguros, das factura, o solo pago directo — este dato genera mucha confianza en pacientes de 30-50 años que buscan reembolso].</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section class="contacto" id="contacto">
     <div class="wrap">
@@ -918,7 +1101,8 @@
         <ul>
           <li><a href="#porque">Por qué elegirnos</a></li>
           <li><a href="#servicios">Tratamientos</a></li>
-          <li><a href="#evidencia">Evidencia</a></li>
+          <li><a href="#condiciones">Qué tratamos</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
@@ -984,6 +1168,31 @@
     });
   }, { threshold: 0.4 });
   document.querySelectorAll('.stat-num').forEach(el => countObserver.observe(el));
+
+  /* Acordeón FAQ */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const answer = item.querySelector('.faq-a');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if (isOpen) {
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
 
   /* Formulario -> WhatsApp */
   const citaForm = document.getElementById('citaForm');
