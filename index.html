@@ -33,6 +33,15 @@
     /* variables dependientes */
     --header-bg: rgba(242,240,231,0.94); /* header translúcido en modo claro */
     --text-strong: var(--ink); /* color principal para titulares/nav */
+
+    /* Acentos (usados por íconos, fondos pequeños y trazos SVG) */
+    --accent: var(--pine);
+    --accent-contrast: #26463A;
+
+    /* fondos específicos para íconos */
+    --cond-bg: rgba(38,70,58,0.08);
+    --spine-color: var(--pine);
+
     color-scheme: light;
   }
 
@@ -56,6 +65,17 @@
     /* header translúcido oscuro */
     --header-bg: rgba(18,24,20,0.72);
     --text-strong: var(--ink); /* en dark, --ink es claro */
+
+    /* en modo oscuro, acentos marfil/amarillentos suaves (menos saturación) */
+    --accent: #EDE6D6;          /* fondo / bloque acento claro (marfil) */
+    --accent-contrast: #C9B999; /* trazo / icono encima del acento (tono beige más oscuro) */
+
+    /* fondo de iconos en condiciones (sutil) */
+    --cond-bg: rgba(237,230,214,0.06);
+
+    /* color de la ilustración de la columna (usa acento-contrast en dark) */
+    --spine-color: var(--accent-contrast);
+
     color-scheme: dark;
   }
 
@@ -282,6 +302,7 @@
   .spine-wrap{
     position:relative;
     display:flex; justify-content:center;
+    color:var(--spine-color); /* la ilustración heredará este color (para dark cambia a marfil) */
   }
   .spine-wrap svg{width:100%; height:auto; max-width:380px;}
   .spine-point{animation:pulse 2.8s ease-in-out infinite;}
@@ -343,14 +364,18 @@
     position:relative;
     display:flex; flex-direction:column;
   }
+  /* servicio-icon usa variables de acento; en light será verde, en dark marfil */
   .servicio-icon{
     width:46px; height:46px;
     border-radius:50%;
-    background:var(--pine);
+    background:var(--accent);
     display:flex; align-items:center; justify-content:center;
     margin-bottom:20px;
   }
   .servicio-icon svg{width:22px; height:22px; stroke:#fff; fill:none;}
+  /* en modo oscuro, forzamos el trazo de los iconos a --accent-contrast para legibilidad */
+  html[data-theme="dark"] .servicio-icon svg{ stroke:var(--accent-contrast) !important; }
+
   .servicio-card .num{
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px;
@@ -456,10 +481,14 @@
   }
   .cond-icon{
     width:42px; height:42px; flex-shrink:0; border-radius:50%;
-    background:rgba(38,70,58,0.08);
+    background:var(--cond-bg);
     display:flex; align-items:center; justify-content:center;
+    color:var(--pine); /* default stroke color para iconos */
   }
-  .cond-icon svg{width:20px; height:20px; stroke:var(--pine); fill:none;}
+  .cond-icon svg{width:20px; height:20px; stroke:currentColor; fill:none;}
+  /* en dark ajustamos color del icono a --accent-contrast (marfil suave) */
+  html[data-theme="dark"] .cond-icon{ color:var(--accent-contrast); }
+
   .cond-card h4{font-size:15.5px; margin-bottom:6px;}
   .cond-card p{font-size:13.5px; color:var(--muted);}
   .cond-note{
@@ -702,7 +731,6 @@
      Prioridad:
      1) Preferencia guardada en localStorage (si existe)
      2) Si no existe, elegir según la hora del día (dark entre 19:00 y 06:00)
-     (se podría ampliar con pref. de sistema si lo deseas)
   */
   (function(){
     try{
@@ -799,8 +827,8 @@
       <div class="spine-wrap" aria-hidden="true">
         <svg viewBox="0 0 300 460" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M150 20 C 120 70, 180 110, 150 160 C 120 210, 180 250, 150 300 C 125 340, 175 380, 150 440"
-                stroke="#26463A" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
-          <g stroke="#26463A" stroke-width="1.4" opacity="0.5">
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.9"/>
+          <g stroke="currentColor" stroke-width="1.4" opacity="0.5">
             <rect x="134" y="34" width="32" height="12" rx="3" transform="rotate(-6 150 40)"/>
             <rect x="126" y="66" width="32" height="12" rx="3" transform="rotate(10 150 72)"/>
             <rect x="132" y="98" width="32" height="12" rx="3" transform="rotate(-8 150 104)"/>
@@ -866,7 +894,6 @@
     </div>
   </section>
 
-  <!-- El resto de secciones... (mantengo estructura original, recortado brevemente por claridad) -->
   <!-- SERVICIOS -->
   <section class="servicios" id="servicios">
     <div class="wrap">
@@ -922,7 +949,7 @@
     </div>
   </section>
 
-  <!-- ... puedes mantener las demás secciones tal como estaban en tu index original ... -->
+  <!-- CONDICIONES -->
   <section class="condiciones" id="condiciones">
     <div class="wrap">
       <div class="section-head reveal">
@@ -933,7 +960,7 @@
       <div class="cond-grid">
         <div class="cond-card reveal">
           <div class="cond-icon">
-            <svg viewBox="0 0 24 24"><path d="M20 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2" stroke="#26463A" stroke-width="1.6" fill="none"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M20 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
           </div>
           <div>
             <h4>Dolor lumbar de oficina</h4>
@@ -942,7 +969,7 @@
         </div>
         <div class="cond-card reveal">
           <div class="cond-icon">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#26463A" stroke-width="1.6" fill="none"/><path d="M12 7v5l3 3" stroke="#26463A" stroke-width="1.6" fill="none"/></svg>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
           </div>
           <div>
             <h4>Cervicalgia y tensión por estrés</h4>
@@ -951,7 +978,7 @@
         </div>
         <div class="cond-card reveal">
           <div class="cond-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2v20" stroke="#26463A" stroke-width="1.6" fill="none"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2v20" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
           </div>
           <div>
             <h4>Dolor de rodilla y articulaciones</h4>
