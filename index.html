@@ -300,7 +300,7 @@
   }
 
   /* ---------- CARRUSEL DE EVIDENCIA DE LA CLÍNICA ---------- */
-  .ec-wrap{margin-bottom:34px; max-width:480px;}
+  .ec-wrap{margin-bottom:34px; max-width:100%;}
   .ec-label{
     font-family:'IBM Plex Mono', monospace;
     font-size:11.5px; letter-spacing:.06em; text-transform:uppercase;
@@ -319,11 +319,12 @@
   }
   .ec-slide{
     min-width:100%;
-    aspect-ratio:16/9;
+    aspect-ratio:4/3;
     position:relative;
+    background:var(--sage);
   }
   .ec-slide img{
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:100%; object-fit:contain; display:block;
   }
   .ec-fallback{
     display:none;
@@ -796,9 +797,9 @@
         </div>
 
         <div class="trust-row">
-          <div class="trust-item"><b>33</b>años de práctica clínica</div>
+          <div class="trust-item"><b>+20</b>años de práctica clínica</div>
           <div class="trust-item"><b>+100</b>pacientes atendidos</div>
-          <div class="trust-item"><b>2247983</b>profesional verificable</div>
+          <div class="trust-item"><b>[Cédula]</b>profesional verificable</div>
         </div>
       </div>
 
@@ -1052,7 +1053,7 @@
           <div class="stat-label">Pacientes atendidos</div>
         </div>
         <div class="reveal">
-          <span class="stat-num" data-count="33">0</span>
+          <span class="stat-num" data-count="20" data-suffix="+">0</span>
           <div class="stat-label">Años de experiencia</div>
         </div>
       </div>
